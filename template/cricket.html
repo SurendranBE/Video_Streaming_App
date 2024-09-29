@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ event.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body class="container" style="background-color: rgb(20, 20, 20);">
+    <div class="video">
+        <h1 style="color: aliceblue;">{{ event.title }}</h1>
+        <div class="row mt-5">
+            {% for subtitle in event.subtitles.all %}
+                <div class="col-md-3">
+                    <div class="card" style="width: 13.9rem;">
+                        <img src="{{ subtitle.image.url }}" class="card-img-top" alt="{{ subtitle.subtitle }}" style="width: 220px; height: 220px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ subtitle.subtitle }}</h5>
+                            <p class="card-text">{{ subtitle.description }}</p>
+                            <a href="{{ subtitle.video_link }}" class="btn btn-primary">Play Video</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

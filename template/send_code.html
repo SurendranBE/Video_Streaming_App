@@ -1,0 +1,6 @@
+<!-- send_code.html -->
+<form method="post" action="{% url 'send_code' %}">
+    {% csrf_token %}
+    <input type="text" name="phone_number" placeholder="Enter your phone number">
+    <button type="submit">Send Code</button>
+</form>
